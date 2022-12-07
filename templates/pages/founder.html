@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="d-flex flex-column justify-content-between" id="books-section">
+    <div id="overlay-books"></div>
+    {% include "partials/_navbar.html" %}
+    <div class="text-center" id="books-headings">
+        <div class="container text-left">
+            <h1 id="books-heading">About the founder</h1>
+            <h4 class="text-uppercase" id="books-subheading" style="font-family: Voces, cursive;font-weight: 600;">Rev. Teresa wairimu Kinyanjui</h4>
+        </div>
+    </div>
+</section>
+<section id="founder-books-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" style="padding-bottom: 2rem;">
+                <p>{{ founder.description }}</p>
+            </div>
+            <div class="col" id="founder-image"><img class="img-fluid" src="{{ founder.photo.url }}"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="jumbotron" id="books-jumbotron">
+                    <h1 id="books-heading">Amazing Books Authored by the Founder</h1>
+                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for book in founder.books.all %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card" id="book-card"><img class="img-fluid card-img-top w-100 d-block" src="{{ book.image.url }}">
+                    <div class="card-body" style="padding-right: 0;padding-bottom: 0;padding-left: 0;">
+                        <h4 class="card-title" id="book-title">{{ book.title }}</h4>
+                        <h6 class="text-muted card-subtitle mb-2">{{ book.author }}</h6>
+                        <p class="card-text">{{ book.description|truncatechars:"200" }}</p><a class="card-link" id="read-more-link" href="{{ book.purchase_url }}" target="_blank">Buy Book&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

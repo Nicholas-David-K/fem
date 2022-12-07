@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="d-flex flex-column justify-content-between" id="hero">
+    <div id="overlay"></div>
+    {% include 'partials/_navbar.html' %}
+    <div id="hero-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4 m-auto align-items-xl-start" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="700" data-aos-once="true">
+                    <h1 class="text-left" id="hero-title">Welcome to FEM Family Church</h1>
+                    <p class="text-left" id="hero-paragraph">A house of prayer for all Nations.<br></p>
+                </div>
+                <div class="col d-none d-lg-block"><!-- Paradise Slider -->
+<div id="fw_al_001" class="carousel slide ps_slide_x ps_indicators_y swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="7000" data-duration="3500">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
+        <li data-target="#fw_al_001" data-slide-to="1"></li>
+        <li data-target="#fw_al_001" data-slide-to="2"></li>
+        <li data-target="#fw_al_001" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper For Slides -->
+    <div class="carousel-inner" role="listbox">
+        {% for photo in images %}
+          
+        <!-- First Slide -->
+        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+
+            <!-- Slide Background -->
+            <img src="{{ photo.image.url }}" class="img-fluid" alt="fw_al_001_01">
+
+            <!-- Slide Text Layer -->
+            {% if photo.caption %}
+            <div class="fw_al_001_slide">
+                <p data-animation="animated fadeInUp">{{ photo.caption }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <!-- End of Slide -->
+        {% endfor %}
+
+    </div><!-- End of Wrapper For Slides -->
+
+</div> <!-- End Paradise Slider -->
+
+
+
+
+<!-- End --></div>
+            </div>
+        </div>
+    </div>
+    <div id="hero-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <a id="hero-card-link" href="#founder-section">
+                        <div class="jumbotron" id="hero-card">
+                            <h1 id="hero-card-title" class="text-center">Our Founder</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <a id="hero-card-link" href="index.html">
+                        <div class="jumbotron" id="hero-card">
+                            <h1 id="hero-card-title" class="text-center">Become a Partner</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <a id="hero-card-link" href="{% url 'founder-sermons' %}">
+                        <div class="jumbotron" id="hero-card">
+                            <h1 id="hero-card-title" class="text-center">Inspirational Word</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="service-times-section">
+    <div class="container">
+        <div class="row d-flex flex-row align-items-center">
+            {% for timing in timings %}
+                <div class="col-lg-5">
+                    <h1 id="service-times-title">{{ timing.title }}</h1>
+                    <p style="font-weight: 500;color: #333;">{{ timing.description }}</p>
+                    <hr class="d-lg-none d-xl-none">
+                </div>
+                <div class="col-lg-7 d-xl-flex justify-content-xl-end">
+                    <h1 id="service-times-title" style="font-size: 20px;">{{ timing.timing }}</h1>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section id="what-we-believe">
+    <div class="container">
+        <div class="row" style="margin-bottom: 59px;">
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto">
+                <h1 class="d-xl-flex justify-content-xl-center">
+                    <img class="align-items-xl-center" src="{% static 'img/e83dbee4bffa590b0a5c5679a92f9fa7-christian-bible-book-icon-by-vexels.png' %}" style="height: 45px;">
+                </h1>
+                {% for belief in beliefs %}
+                <h1 class="text-center" id="beliefs-title">{{ belief.title }}</h1>
+                <p class="text-center" style="opacity: 1;">{{ belief.what_we_believe }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section id="founder-section">
+    <div class="container">
+        <div class="row">
+            {% for founder in founders %}
+            <div class="col">
+                <div class="card d-flex flex-lg-row" id="founder-card">
+                    <div id="image-div"><img class="img-fluid card-img-top" id="founder-image" src="{{ founder.photo.url }}" width="1107" height="1107"></div>
+                    <div class="card-body">
+                        <h4 class="card-title" id="founder-heading">our Founder</h4>
+                        <h6 id="founder-name" class="mb-2">Rev. Teresa Wairimu</h6>
+                        <p class="card-text" id="founder-description">{{ founder.description|truncatechars:"400" }}<br><br></p><a class="card-link" id="hero-card-link"
+                            href="{% url 'founder' founder.slug %}"><button class="btn btn-light" id="custom-button" type="button">More About the Founder&nbsp;&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section id="our-branches-section">
+    <div class="container">
+        <div class="row d-flex flex-row justify-content-center" id="chapter">
+            <div class="col" id="chapters-scroll">
+                <h1 class="text-uppercase" id="our-chapters-title">Fem Branches</h1>
+                <h1 id="our-chapters-subtitle">A subtitle here</h1>
+            </div>
+        </div>
+        <div class="row d-flex flex-row justify-content-center align-items-center">
+            {% for chapter in chapters %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card" id="chapter-card"><img class="img-fluid card-img-top w-100 d-block" src="{{ chapter.front_photo.url }}">
+                    <div class="card-body" style="padding-right: 0;padding-bottom: 0;padding-left: 0;">
+                        <h4 class="card-title" id="chapter-title" style="text-transform: uppercase;">{{ chapter.chapter_name }}</h4>
+                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut</p><a class="card-link" id="read-more-link" href="{% url 'chapter' chapter.slug %}">Learn More&nbsp;&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section id="sermons-section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 id="recent-s-heading">Recent Sermons</h1>
+                <h4 id="recent-s-subtitle">inspiring messages from our pastors</h4>
+            </div>
+        </div>
+        <div class="row d-flex flex-row justify-content-center align-items-center" style="margin-bottom: 30px;">
+            {% for sermon in sermons %}
+            <div class="col-lg-4">
+                <div class="jumbotron" id="single-r-sermon">
+                    <h1 id="recent-s-title">{{ sermon.title }}&nbsp;</h1><small class="text-muted">By {{ sermon.speaker }} on {{ sermon.created_at|date:"M d, Y" }}</small>
+                    <p class="recent-s-p" style="margin-top: 10px;">Nullam id dolor id nibh ultricies vehicula ut id elit..</p><a id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col text-center"><a id="hero-card-link" href="{% url 'founder-sermons' %}"><button class="btn" id="custom-button" type="button">Interdenominational Messages&nbsp;&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
+        </div>
+    </div>
+</section>
+<section id="verse-section" style="font-weight: 600;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center" id="verse-of-week-h">Verse of the Week</h1>
+                {% for verse in verses %}
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0" style="color: rgb(251,249,249);padding-top: 10px;padding-bottom: 10px;font-weight: 500;">{{ verse.verse }}<br></p>
+                    <footer class="blockquote-footer" id="verse-of-day-blockquote">{{ verse.book }}</footer>
+                </blockquote>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section id="upcoming-e-section">
+    <div class="container">
+        <div class="row d-flex flex-row align-items-end">
+            <div class="col">
+                <h1 id="upcoming-e-title">Upcoming events</h1>
+                <h4 id="upcoming-e-subtitle">subtitle here</h4>
+                <section id="section-timeline" style="padding-top: 2rem;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <ul class="list-group timeline">
+                                    {% for event in events %} 
+                                    <li class="list-group-item 
+                                    {% if event.inverted %}
+                                        timeline-inverted
+                                    {% endif %}
+                                    ">
+                                        <div class="timeline-image"></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 id="event-title">{{ event.event_title }}</h4>
+                                                <h4 class="subheading">{{ event.event_date|date:"M d, Y" }}</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>{{ event.description }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul><a id="hero-card-link" href="{% url 'events' %}"><button class="btn btn-primary" id="custom-button" type="button">all programs &amp; events&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about-us-section">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 id="about-us-heading">about us</h1>
+                <h4 id="testimony-subtitle">learn more about fem family church</h4>
+            </div>
+        </div>
+        <div class="row d-flex flex-row justify-content-center align-items-center" style="margin-bottom: 60px;">
+            {% for about in about_us %}
+            <div class="col-lg-4">
+                <div class="card" id="testimony-card"><img class="img-fluid card-img-top w-100 d-block card-img-top" src="{{ about.banner_image.url }}">
+                    <div class="card-body">
+                        <h4 class="card-title" id="about-title">{{ about.about_title }}</h4><small>{{ about.about_subtitle }}</small>
+                        <p class="card-text" id="testimony-p">{{ about.description|truncatechars:"100" }}<br></p><a class="card-link" id="read-more-link" href="{% url 'about-us' about.slug %}">Read More&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col text-center" id="share-story">
+                <h1 class="text-uppercase text-center" id="share-title">do you want to Share a testimony with us?</h1><a id="hero-card-link" href="share-testimony.html"><button class="btn btn-light" id="custom-button" type="button">Share Your Story&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

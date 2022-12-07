@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>FEM Family Church</title>
+    <meta name="twitter:title" content="FEM Family Church">
+    <meta property="og:type" content="">
+    <meta property="og:image" content="{% static 'img/untitled-6-2.jpg' %}">
+    <meta name="twitter:card" content="">
+    <link rel="icon" type="image/png" sizes="1025x918" href="{% static 'img/FEM%20Family%20Church%20Halo_Red.png' %}">
+    <link rel="icon" type="image/png" sizes="1025x918" href="{% static 'img/FEM%20Family%20Church%20Halo_Red.png' %}">
+    <link rel="icon" type="image/png" sizes="1025x918" href="{% static 'img/FEM%20Family%20Church%20Halo_Red.png' %}">
+    <link rel="icon" type="image/png" sizes="1025x918" href="{% static 'img/FEM%20Family%20Church%20Halo_Red.png' %}">
+    <link rel="icon" type="image/png" sizes="1025x918" href="{% static 'img/FEM%20Family%20Church%20Halo_Red.png' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&amp;subset=latin-ext,vietnamese,cyrillic-ext,cyrillic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif+Caption&amp;subset=cyrillic,latin-ext">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Voces&amp;subset=latin-ext">
+    <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Swipe-Slider-7.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Timeline.css' %}">
+</head>
+
+<body>
+   {% block content %}{% endblock content %}
+   {% include 'partials/_footer.html' %} 
+
+   <!-- loader -->
+   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#fbf9f9"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#9b2d14"/></svg></div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+    <script src="{% static 'js/Swipe-Slider-9.js' %}"></script>
+    <script>
+        // loader
+        var loader = function() {
+            setTimeout(function() { 
+                if($('#ftco-loader').length > 0) {
+                    $('#ftco-loader').removeClass('show');
+                }
+            }, 1);
+        };
+        loader();
+        </script>
+</body>
+
+</html>

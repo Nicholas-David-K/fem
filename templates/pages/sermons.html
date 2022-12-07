@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<!DOCTYPE html>
+<html>
+
+
+<body>
+    <section class="d-flex flex-column justify-content-between" id="hero-sermons">
+        <div id="overlay-sermons"></div>
+        {% include "partials/_navbar.html" %}
+        <div id="sermons-headings">
+            <div class="container">
+                <h1 id="sermons-heading">interdenominational services</h1>
+                <h4 id="sermons-subheading">BY REVEREND TERESA wAIRIMU</h4>
+            </div>
+        </div>
+    </section>
+    <section id="sermons-section-2">
+        <div class="container">
+            <div class="row d-flex flex-row align-items-center">
+                {% for sermon in sermons %}
+                <div class="col-lg-3 order-sm-2 order-md-2 order-lg-1">
+                    <div class="card" id="m-sermons-card"><img class="img-fluid card-img-top w-100 d-block" src="{{ sermon.banner.url }}">
+                        <div class="card-body">
+                            <h4 class="card-title" id="m-sermons-card-title">{{ sermon.title }}</h4><small>Shared on {{ sermon.created_at|date:"M d, Y" }}<br></small>
+                            <p class="card-text">{{ sermon.description }}</p><a class="card-link" id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col" id="pages">
+                    <nav>
+                        {% if sermons.has_other_pages %}
+                            <ul class="pagination">
+                                {% if sermons.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ sermons.prevous_page_number }}" aria-label="Previous">
+                                        <span aria-hidden="true">Previous</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Previous"><span aria-hidden="true">Previous</span></a>
+                                </li>
+                                {% endif %}
+                                {% for i in sermons.paginator.page_range %}
+                                    {% if sermons.number == i %}
+                                        <li class="page-item active">
+                                            <a class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if sermons.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ sermons.next_page_number }}" aria-label="Next">
+                                            <span aria-hidden="true">Next</span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">Next</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

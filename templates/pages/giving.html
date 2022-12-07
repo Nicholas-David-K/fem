@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="d-flex flex-column justify-content-between" id="main-giving-section">
+        <div id="main-giving-overlay"></div>
+        {% include 'partials/_navbar.html' %}
+        <div class="text-center" id="main-giving-headings">
+            <div class="container text-left">
+                <h1 id="main-giving-heading">giving</h1>
+                <h4 id="main-giving-subheading">Tithes &amp; offering</h4>
+            </div>
+        </div>
+    </section>
+    <section id="section-timeline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-group timeline">
+                        {% for giving in givings %}
+                        <li class="list-group-item 
+                        {% if giving.inverted %}
+                        timeline-inverted
+                        {% endif %}
+                        ">
+                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ giving.png.url }}"></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{ giving.giving_type }}</h4>
+                                    <h4 class="subheading">{{ giving.subtitle }}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{ giving.description }}</p>
+                                </div>
+                            </div>
+                        </li>
+                       {% endfor %}
+                    
+                        <li class="list-group-item timeline-inverted">
+                            <div class="timeline-image"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

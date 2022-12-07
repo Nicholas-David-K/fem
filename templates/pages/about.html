@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="d-flex flex-column justify-content-between" id="about-section">
+        <div id="overlay-about"></div>
+        {% include "partials/_navbar.html" %}
+        <div class="text-center" id="about-headings">
+            <div class="container text-left">
+                <h1 id="about-heading">{{ about.about_title }}</h1>
+                <h4 class="text-uppercase" id="about-subheading" style="font-family: Voces, cursive;font-weight: 600;">{{ about.about_subtitle }}</h4>
+            </div>
+        </div>
+    </section>
+    <section id="c-about-us-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>{{ about.description }}<br><br></p>
+                </div>
+                <div class="col-lg-6"><img class="img-fluid" id="about-image" src="{{ about.banner_image.url }}"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1 id="gallery-title">Image Gallery</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row fbox3">
+                {% if about.photo_1 %}
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="Teens &amp; Young Adults Class" href="{{ about.photo_1.url }}"><img class="img-fluid" src="{{ about.photo_1.url }}"></a></div>
+                {% endif %}
+                {% if about.photo_2 %}
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="Teens &amp; Young Adults Class" href="{{ about.photo_2.url }}"><img class="img-fluid" src="{{ about.photo_2.url }}"></a></div>
+                {% endif %}
+                {% if about.photo_3 %}
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="Teens &amp; Young Adults Class" href="{{ about.photo_3.url }}"><img class="img-fluid" src="{{ about.photo_3.url }}"></a></div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+{% endblock content %}

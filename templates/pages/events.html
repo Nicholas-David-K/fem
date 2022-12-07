@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  
+    <section class="d-flex flex-column justify-content-between" id="events-section">
+        <div id="overlay-events"></div>
+        {% include 'partials/_navbar.html' %}
+        <div id="events-headings">
+            <div class="container">
+                <h1 id="events-heading">Programs &amp; Events</h1>
+                <h4 id="events-subheading">Upcoming programs &amp; events</h4>
+            </div>
+        </div>
+    </section>
+    <section id="events-list-section">
+        <div class="container">
+            <div class="row d-flex flex-row justify-content-center align-items-center">
+                {% for event in events %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card" id="event-card">
+                        {% if event.banner %}
+                        <img class="img-fluid card-img-top w-100 d-block" src="{{ event.banner.url }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h4 class="card-title" id="single-event-heading">{{ event.event_title }}</h4>
+                            <h6 class="text-muted card-subtitle mb-2">This event is on {{ event.event_date|date:"M d, Y "}}</h6>
+                            <p class="card-text">{{ event.description }}</p>
+                            <div id="event-div">
+                                <p id="event-date"><i class="icon ion-ios-calendar-outline"></i>&nbsp;{{ event.event_date|date:"M d, Y "}}</p>
+                                <p id="event-time"><i class="icon ion-clock"></i>&nbsp;{{ event.time }}</p>
+                                <p id="event-location"><i class="icon-location-pin"></i>{{ event.location }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col" id="pages">
+                    <nav>
+                        {% if events.has_other_pages %}
+                            <ul class="pagination">
+                                {% if events.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ events.prevous_page_number }}" aria-label="Previous">
+                                        <span aria-hidden="true">Previous</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Previous"><span aria-hidden="true">Previous</span></a>
+                                </li>
+                                {% endif %}
+                                {% for i in events.paginator.page_range %}
+                                    {% if events.number == i %}
+                                        <li class="page-item active">
+                                            <a class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if events.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ events.next_page_number }}" aria-label="Next">
+                                            <span aria-hidden="true">Next</span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">Next</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
