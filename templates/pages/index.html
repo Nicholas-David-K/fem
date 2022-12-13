@@ -122,7 +122,7 @@
                     <div class="card-body">
                         <h4 class="card-title" id="founder-heading">our Founder</h4>
                         <h6 id="founder-name" class="mb-2">Rev. Teresa Wairimu</h6>
-                        <p class="card-text" id="founder-description">{{ founder.description|truncatechars:"400" }}<br><br></p><a class="card-link" id="hero-card-link"
+                        <p class="card-text" id="founder-description">{{ founder.description|truncatechars:"400" | safe     }}<br><br></p><a class="card-link" id="hero-card-link"
                             href="{% url 'founder' founder.slug %}"><button class="btn btn-light" id="custom-button" type="button">More About the Founder&nbsp;&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                                                 <h4 class="subheading">{{ event.event_date|date:"M d, Y" }}</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>{{ event.description }}</p>
+                                                <p>{{ event.description | safe }}</p>
                                             </div>
                                         </div>
                                     </li>

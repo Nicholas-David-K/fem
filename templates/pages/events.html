@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h4 class="card-title" id="single-event-heading">{{ event.event_title }}</h4>
                             <h6 class="text-muted card-subtitle mb-2">This event is on {{ event.event_date|date:"M d, Y "}}</h6>
-                            <p class="card-text">{{ event.description }}</p>
+                            <p class="card-text">{{ event.description | safe }}</p>
                             <div id="event-div">
                                 <p id="event-date"><i class="icon ion-ios-calendar-outline"></i>&nbsp;{{ event.event_date|date:"M d, Y "}}</p>
                                 <p id="event-time"><i class="icon ion-clock"></i>&nbsp;{{ event.time }}</p>

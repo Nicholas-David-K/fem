@@ -1,6 +1,7 @@
 from django.db import models
 from pages.slug import unique_slugify
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 
 User = get_user_model()
 
@@ -20,7 +21,7 @@ def image_file_path(instance, filename):
 # Books Model
 class Founder(models.Model):
     subtitle = models.CharField(max_length=150)
-    description = models.TextField()
+    description = RichTextField()
     founder_photo = models.ImageField(upload_to=image_file_path)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -35,8 +36,8 @@ class Founder(models.Model):
 class Chapter(models.Model):
     chapter_name = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=150)
-    description = models.TextField()
-    service_plan = models.TextField()
+    description = RichTextField()
+    service_plan = RichTextField()
     url = models.URLField()
     slug = models.SlugField(max_length=150, unique=True, blank=True, null=True)
     front_photo = models.ImageField(blank=True, null=True, upload_to=image_file_path)
@@ -69,7 +70,7 @@ class Sermon(models.Model):
     title = models.CharField(max_length=150)
     speaker = models.CharField(max_length=50)
     url = models.URLField()
-    description = models.TextField()
+    description = RichTextField()
     banner = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -102,7 +103,7 @@ class ImageSlider(models.Model):
 # Verse of Week
 class Verse(models.Model):
     book = models.CharField(max_length=50)
-    verse = models.TextField()
+    verse = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -119,7 +120,7 @@ class Event(models.Model):
     event_date = models.DateField()
     time = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
-    description = models.TextField()
+    description = RichTextField()
     banner = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     inverted = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -133,7 +134,7 @@ class Event(models.Model):
 class About(models.Model):
     about_title = models.CharField(max_length=100)
     about_subtitle = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     banner_image = models.ImageField(upload_to=image_file_path)
     photo_1 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     photo_2 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
@@ -163,7 +164,7 @@ class About(models.Model):
 class Book(models.Model):   
     book_title = models.CharField(max_length=50)
     author = models.CharField(max_length=50)
-    description = models.TextField()
+    description = RichTextField()
     purchase_url = models.URLField(blank=True, null=True)
     image = models.ImageField(upload_to=image_file_path)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -178,7 +179,7 @@ class Book(models.Model):
 class Giving(models.Model):
     giving_type = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=50)
-    description = models.TextField()
+    description = RichTextField()
     png = models.ImageField(upload_to=image_file_path)
     inverted = models.BooleanField(default=True)
 
@@ -197,7 +198,7 @@ class Giving(models.Model):
 # Founder
 class AboutFounder(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
-    description = models.TextField()
+    description = RichTextField()
     books = models.ManyToManyField("Book", blank=True, null=True)
     photo = models.ImageField(upload_to=image_file_path)
     slug = models.SlugField(max_length=150, unique=True, blank=True, null=True)
@@ -228,7 +229,7 @@ class AboutFounder(models.Model):
 # Service Schedule
 class ServiceSchedule(models.Model):
     title = models.CharField(max_length=50)
-    description = models.TextField()
+    description = RichTextField()
     timing = models.CharField(max_length=100)
     created_at = models.DateTimeField(null=True, auto_now_add=True)
     updated_at = models.DateTimeField(null=True, auto_now=True)
@@ -241,7 +242,7 @@ class ServiceSchedule(models.Model):
 # What We Believe
 class Belief(models.Model):
     title = models.CharField(max_length=100)
-    what_we_believe = models.TextField()
+    what_we_believe = RichTextField()
     created_at = models.DateTimeField(null=True, auto_now_add=True)
     updated_at = models.DateTimeField(null=True, auto_now=True)
 

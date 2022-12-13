@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row d-flex flex-row align-items-center" style="margin-bottom: 50px;">
                 <div class="col-lg-7">
-                    <p>{{ chapter.description }}&nbsp;<br></p>
+                    <p>{{ chapter.description | safe }}&nbsp;<br></p>
                 </div>
                 <div class="col" id="chapter-image"><img class="img-fluid" src="{{ chapter.pastor_photo.url }}"></div>
             </div>

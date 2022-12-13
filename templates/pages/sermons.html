@@ -25,7 +25,7 @@
                     <div class="card" id="m-sermons-card"><img class="img-fluid card-img-top w-100 d-block" src="{{ sermon.banner.url }}">
                         <div class="card-body">
                             <h4 class="card-title" id="m-sermons-card-title">{{ sermon.title }}</h4><small>Shared on {{ sermon.created_at|date:"M d, Y" }}<br></small>
-                            <p class="card-text">{{ sermon.description }}</p><a class="card-link" id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                            <p class="card-text">{{ sermon.description | safe }}</p><a class="card-link" id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
                     </div>
                 </div>
                 {% endfor %}
