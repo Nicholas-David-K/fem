@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <section class="d-flex flex-column justify-content-between" id="hero-share-testimony">
+        <div id="overlay-share-testimony"></div>
+        {% include "partials/_navbar.html" %}
+        <div id="testimonies-headings">
+            <div class="container">
+                <h1 id="share-testimony-heading">Share testimony</h1>
+                <h4 id="share-testimony-subtitle">inspire others</h4>
+            </div>
+        </div>
+    </section>
+    <section id="share-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form id="share-form" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    {{ form.full_name }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    {{ form.phone_number }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Testimony Subject</label>
+                                    {{ form.testimony_subject }}
+                                    <small class="form-text text-muted">Eg. Miracle Child, Dream Job...<br>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    {{ form.email }}
+                                    <small class="form-text text-muted">We'll never share your email with anyone
+                                        else.<br>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Testimony</label>
+                            {{ form.testimony }}
+                        </div>
+                        <div class="form-row text-center" style="margin-top: 32px;">
+                            <div class="col">
+                                <button class="btn btn-primary" id="custom-button" type="submit">Share Testimony&nbsp;<i
+                                        class="icon ion-ios-arrow-thin-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}

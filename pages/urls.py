@@ -9,5 +9,6 @@ urlpatterns = [
     path('about/<slug:slug>/', views.AboutUsDetailView.as_view(), name='about-us'),
     path('about/<slug:slug>/founder/', views.FounderDetailView.as_view(), name='founder'),
     path('giving/', views.GivingView.as_view(), name='giving'),
+    path('share-testimony/', views.ShareTestimonyView.as_view(), name='share-testimony')
 
 ]

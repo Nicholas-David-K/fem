@@ -3,6 +3,8 @@ from django.views import generic
 from django.views import View
 from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Giving, ImageSlider, ServiceSchedule, Belief
 from django.core.paginator import Paginator
+from .forms import TestimonyForm
+from django.urls import reverse
 
 # Create your views here.
 
@@ -121,3 +123,32 @@ class FounderDetailView(generic.DetailView):
     def get_queryset(self):
         queryset = AboutFounder.objects.filter(slug=self.kwargs['slug'])
         return queryset
+
+
+
+
+
+class ShareTestimonyView(View):
+    def get(self, *args, **kwargs):
+        form = TestimonyForm()
+        context = {
+            'form': form
+        }
+        return render(self.request, 'pages/testimony.html', context)
+
+
+
+
+
+# Share Testimony
+class ShareTestimonyView(generic.CreateView):
+    form_class = TestimonyForm
+    template_name = 'pages/testimony.html'
+
+
+    def form_valid(self, form):
+        form.save()
+
+
+    def get_success_url(self):
+        return reverse('share-testimony')

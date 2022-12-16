@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Book, Giving, ImageSlider, ServiceSchedule, Belief
+from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Book, Giving, ImageSlider, ServiceSchedule, Belief, Testimony
 # Register your models here.
 
 admin.site.register(Chapter)
@@ -13,3 +13,4 @@ admin.site.register(Giving)
 admin.site.register(ImageSlider)
 admin.site.register(ServiceSchedule)
 admin.site.register(Belief)
+admin.site.register(Testimony)
