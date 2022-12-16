@@ -2,6 +2,8 @@ from django.db import models
 from pages.slug import unique_slugify
 from django.contrib.auth import get_user_model
 from ckeditor.fields import RichTextField
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 User = get_user_model()
 
@@ -254,9 +256,9 @@ class Belief(models.Model):
 
 class Testimony(models.Model):
     full_name = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=15)
+    phone_number = PhoneNumberField()
     testimony_subject = models.CharField(max_length=150)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=False)
     active = models.BooleanField(default=False)
     testimony = models.TextField()
     created_at = models.DateTimeField(null=True, auto_now_add=True)

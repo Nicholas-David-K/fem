@@ -4,6 +4,7 @@ from django.views import View
 from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Giving, ImageSlider, ServiceSchedule, Belief
 from django.core.paginator import Paginator
 from .forms import TestimonyForm
+from django.contrib import messages
 from django.urls import reverse
 
 # Create your views here.
@@ -145,10 +146,6 @@ class ShareTestimonyView(generic.CreateView):
     form_class = TestimonyForm
     template_name = 'pages/testimony.html'
 
-
-    def form_valid(self, form):
-        form.save()
-
-
     def get_success_url(self):
-        return reverse('share-testimony')
+        messages.success(self.request, 'You have share a testimony successfully')
+        return reverse('share-testimony')   
