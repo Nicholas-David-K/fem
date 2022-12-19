@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views import View
-from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Giving, ImageSlider, ServiceSchedule, Belief
+from .models import Chapter, Sermon, Verse, Event, About, AboutFounder, Giving, ImageSlider, ServiceSchedule, Belief, Testimony
 from django.core.paginator import Paginator
 from .forms import TestimonyForm
 from django.contrib import messages
@@ -146,6 +146,16 @@ class ShareTestimonyView(generic.CreateView):
     form_class = TestimonyForm
     template_name = 'pages/testimony.html'
 
+    def form_valid(self, form):
+        # check email
+        email = form.cleaned_data['email']
+        if Testimony.objects.filter(email=email, read=False).exists():
+            messages.error(self.request, 'You cannot share another testimony. Your previous testimony has not been read yet')
+            return super(ShareTestimonyView, self).form_invalid(form)
+        else:
+            return super(ShareTestimonyView, self).form_valid(form)
+
+
     def get_success_url(self):
-        messages.success(self.request, 'You have share a testimony successfully')
-        return reverse('share-testimony')   
+        messages.success(self.request, 'Testimony Sent')
+        return reverse('share-testimony')

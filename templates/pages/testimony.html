@@ -16,6 +16,7 @@
     <section id="share-form-section">
         <div class="container">
             <div class="row">
+                {% include "partials/_alerts.html" %}
                 <div class="col">
                     <form id="share-form" method="POST">
                         {% csrf_token %}

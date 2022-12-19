@@ -80,7 +80,7 @@ class Sermon(models.Model):
 
 
     def __str__(self):
-        return f"{self.speaker} • {self.title}"
+        return self.title
 
 
 
@@ -259,8 +259,8 @@ class Testimony(models.Model):
     phone_number = PhoneNumberField()
     testimony_subject = models.CharField(max_length=150)
     email = models.EmailField(unique=False)
-    active = models.BooleanField(default=False)
     testimony = models.TextField()
+    read = models.BooleanField(default=False)
     created_at = models.DateTimeField(null=True, auto_now_add=True)
     updated_at = models.DateTimeField(null=True, auto_now=True)
 
