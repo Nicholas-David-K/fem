@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-%(ll*!0z$v!%bekpp0a5d8w!4f^j4d+ft43_=9wsr)_or*+qa^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
@@ -78,11 +79,21 @@ WSGI_APPLICATION = 'fem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'femkarendb',
+        'USER': 'postgres',
+        'PASSWORD': 'Tauriel12',
+        'HOST': 'localhost'
+    }
 }
 
 
