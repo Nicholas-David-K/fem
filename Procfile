@@ -1,1 +1,1 @@
-web: gunicorn 'fem.wsgi'
+web: gunicorn 'fem.wsgi' --log-file -
