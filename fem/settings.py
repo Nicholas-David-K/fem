@@ -133,12 +133,16 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = 'staticfiles'
+# STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'fem/static')
+# ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'fem/static')
 ]
-
 
 # MESSAGES
 from django.contrib.messages import constants as messages
