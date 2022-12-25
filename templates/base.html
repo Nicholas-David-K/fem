@@ -65,6 +65,14 @@
         };
         loader();
         </script>
+        <script>
+            const paragraph = `
+                    <p class="d-xl-flex justify-content-xl-center copyright" id="year" style="padding-left: 15px;">
+                        Faith Evangelistic Ministry © ${new Date().getFullYear()} - All Rights Reserved
+                    </p>`;
+            
+            document.getElementById('copyright').innerHTML = paragraph;
+        </script>
 </body>
 
 </html>
