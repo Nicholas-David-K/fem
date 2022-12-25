@@ -216,7 +216,7 @@ class AboutFounder(models.Model):
 
         if not self.id:
             # slugify
-            slug_str = "%s %s %s" % (self.name, self.created_at, self.subtitle)
+            slug_str = "%s %s %s" % (self.name, self.created_at, self.updated_at)
             unique_slugify(self, slug_str)
             
         return super(AboutFounder, self).save()
