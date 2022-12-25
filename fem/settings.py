@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,6 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
 
     'ckeditor',
     'phonenumber_field',
-    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -82,23 +84,23 @@ WSGI_APPLICATION = 'fem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'WV2MRcvypQlfDwgUEt9u',
-        'HOST': 'containers-us-west-155.railway.app',
-        'PORT': '7425'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'WV2MRcvypQlfDwgUEt9u',
+#         'HOST': 'containers-us-west-155.railway.app',
+#         'PORT': '7425'
+#     }
+# }
 
 
 # Password validation
@@ -136,12 +138,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
-
-STATIC_ROOT = 'staticfiles'
+# STATIC_ROOT = 'staticfiles' (remove cloudinary_storage from installed appsj to update images with collectstatic command)
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'fem/static')
 ]
+
+
+CLOUDINARY_STORAGE = {
+    # other settings, like credentials
+    'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, 'manifest')
+}
+
+
+
 
 # MESSAGES
 from django.contrib.messages import constants as messages
