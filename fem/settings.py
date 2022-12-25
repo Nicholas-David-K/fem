@@ -29,7 +29,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://django-server-production-6d5b.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://fem.up.railway.app↗']
 
 
 
