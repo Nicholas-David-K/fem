@@ -264,6 +264,11 @@ class Testimony(models.Model):
     created_at = models.DateTimeField(null=True, auto_now_add=True)
     updated_at = models.DateTimeField(null=True, auto_now=True)
 
+    class Meta:
+        verbose_name = 'Testimony'
+        verbose_name_plural = 'Testimonies'
+
+
     def __str__(self):
         return f"{self.full_name} - {self.testimony_subject}"
 
