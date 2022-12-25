@@ -90,10 +90,11 @@ WSGI_APPLICATION = 'fem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'femkarendb',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'Tauriel12',
-        'HOST': 'localhost'
+        'PASSWORD': 'WV2MRcvypQlfDwgUEt9u',
+        'HOST': 'containers-us-west-155.railway.app',
+        'PORT': '7425'
     }
 }
 
