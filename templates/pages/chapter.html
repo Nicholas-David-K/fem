@@ -7,8 +7,8 @@
         {% include "partials/_navbar.html" %}
         <div class="text-center" id="chapter-headings">
             <div class="container text-left">
-                <h1 id="chapter-heading">fem mombasa</h1>
-                <h4 class="text-uppercase" id="chapter-subheading">a subtitle here</h4>
+                <h1 id="chapter-heading">{{ chapter.chapter_name }}</h1>
+                <h4 class="text-uppercase" id="chapter-subheading">{{ chapter.subtitle | safe }}</h4>
             </div>
         </div>
     </section>
@@ -24,7 +24,7 @@
                 <div class="col">
                     <div class="jumbotron" id="service-schedule">
                         <h1>Service plan</h1>
-                        <p>{{ chapter.service_plan }}</p><a class="btn btn-primary" role="button" id="custom-button" href="https://femmombasa.com/" target="_blank">Learn more from their website&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                        <p>{{ chapter.service_plan | safe }}</p><a class="btn btn-primary" role="button" id="custom-button" href="{{ chapter.url }}" target="_blank">Learn more about {{ chapter. }}&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
                 </div>
             </div>
             <div class="row">

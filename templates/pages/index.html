@@ -87,11 +87,11 @@
             {% for timing in timings %}
                 <div class="col-lg-5">
                     <h1 id="service-times-title">{{ timing.title }}</h1>
-                    <p style="font-weight: 500;color: #333;">{{ timing.description }}</p>
+                    <p style="font-weight: 500;color: #333;">{{ timing.description | safe }}</p>
                     <hr class="d-lg-none d-xl-none">
                 </div>
                 <div class="col-lg-7 d-xl-flex justify-content-xl-end">
-                    <h1 id="service-times-title" style="font-size: 20px;">{{ timing.timing }}</h1>
+                    <h1 id="service-times-title" style="font-size: 20px;">{{ timing.timing | safe }}</h1>
                 </div>
             {% endfor %}
         </div>
