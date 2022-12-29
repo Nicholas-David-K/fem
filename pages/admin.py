@@ -13,8 +13,9 @@ admin.site.register(Chapter, ChapterModelAdmin)
 
 
 class SermonModelAdmin(admin.ModelAdmin):
-    list_display = ('title', 'speaker', 'url')
+    list_display = ('title', 'speaker', 'url', 'interdenominational')
     list_display_links = ('title', 'url')
+    list_editable = ('interdenominational',)
 admin.site.register(Sermon, SermonModelAdmin)
 
 
