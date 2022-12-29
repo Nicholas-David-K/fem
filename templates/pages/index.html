@@ -180,7 +180,7 @@
                 <h1 class="text-center" id="verse-of-week-h">Verse of the Week</h1>
                 {% for verse in verses %}
                 <blockquote class="blockquote text-center">
-                    <p class="mb-0" style="color: rgb(251,249,249);padding-top: 10px;padding-bottom: 10px;font-weight: 500;">{{ verse.verse }}<br></p>
+                    <p class="mb-0" style="color: rgb(251,249,249);padding-top: 10px;padding-bottom: 10px;font-weight: 500;">{{ verse.verse | safe }}<br></p>
                     <footer class="blockquote-footer" id="verse-of-day-blockquote">{{ verse.book }}</footer>
                 </blockquote>
                 {% endfor %}
@@ -215,6 +215,10 @@
                                                 <p>{{ event.description | safe }}</p>
                                             </div>
                                         </div>
+                                    </li>
+                                    {% empty %}
+                                    <li>
+                                        <p>There are no upcoming events</p>
                                     </li>
                                     {% endfor %}
                                 </ul><a id="hero-card-link" href="{% url 'events' %}"><button class="btn btn-primary" id="custom-button" type="button">all programs &amp; events&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
