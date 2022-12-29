@@ -41,7 +41,6 @@ class Chapter(models.Model):
     description = RichTextField()
     service_plan = RichTextField()
     url = models.URLField()
-    slug = models.SlugField(max_length=150, unique=True, blank=True, null=True)
     front_photo = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     pastor_photo = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     photo_1 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
@@ -50,6 +49,7 @@ class Chapter(models.Model):
     photo_4 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     photo_5 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     photo_6 = models.ImageField(blank=True, null=True, upload_to=image_file_path)
+    slug = models.SlugField(max_length=150, unique=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

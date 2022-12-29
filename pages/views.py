@@ -20,7 +20,7 @@ class IndexPageView(View):
         timing = ServiceSchedule.objects.all()[:1]
         founder = AboutFounder.objects.all()[:1]
         beliefs = Belief.objects.all()[:1]
-        about = About.objects.all()
+        about = About.objects.all().order_by('-created_at')
 
 
         context = {
