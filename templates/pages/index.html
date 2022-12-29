@@ -164,7 +164,7 @@
             <div class="col-lg-4">
                 <div class="jumbotron" id="single-r-sermon">
                     <h1 id="recent-s-title">{{ sermon.title }}&nbsp;</h1><small class="text-muted">By {{ sermon.speaker }} on {{ sermon.created_at|date:"M d, Y" }}</small>
-                    <p class="recent-s-p" style="margin-top: 10px;">{{ sermon.description | safe | truncatechars:"50" }}</p><a id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                    <p class="recent-s-p" style="margin-top: 10px;">{{ sermon.description | safe | truncatechars:"400" }}</p><a id="read-more-link" href="{{ sermon.url }}" target="_blank">View Sermon&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
             </div>
             {% endfor %}
         </div>
