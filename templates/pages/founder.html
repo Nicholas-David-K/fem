@@ -33,7 +33,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card" id="book-card"><img class="img-fluid card-img-top w-100 d-block" src="{{ book.image.url }}">
                     <div class="card-body" style="padding-right: 0;padding-bottom: 0;padding-left: 0;">
-                        <h4 class="card-title" id="book-title">{{ book.title }}</h4>
+                        <h4 class="card-title" id="book-title">{{ book.book_title }}</h4>
                         <h6 class="text-muted card-subtitle mb-2">{{ book.author }}</h6>
                         <p class="card-text">{{ book.description|truncatechars:"200" | safe }}</p><a class="card-link" id="read-more-link" href="{{ book.purchase_url }}" target="_blank">Buy Book&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
                 </div>
