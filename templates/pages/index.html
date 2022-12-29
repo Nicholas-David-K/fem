@@ -106,7 +106,7 @@
                 </h1>
                 {% for belief in beliefs %}
                 <h1 class="text-center" id="beliefs-title">{{ belief.title }}</h1>
-                <p class="text-center" style="opacity: 1;">{{ belief.what_we_believe }}</p>
+                <p class="text-center" style="opacity: 1;">{{ belief.what_we_believe | safe }}</p>
                 {% endfor %}
             </div>
         </div>
@@ -218,7 +218,7 @@
                                     </li>
                                     {% empty %}
                                     <li>
-                                        <p>There are no upcoming events</p>
+                                        <p>There are no upcoming programs or events</p>
                                     </li>
                                     {% endfor %}
                                 </ul><a id="hero-card-link" href="{% url 'events' %}"><button class="btn btn-primary" id="custom-button" type="button">all programs &amp; events&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></button></a></div>
