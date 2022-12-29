@@ -74,7 +74,7 @@ class Sermon(models.Model):
     url = models.URLField()
     description = RichTextField()
     banner = models.ImageField(blank=True, null=True, upload_to=image_file_path)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now=True)
     interdenominational = models.BooleanField(default=True)
 
