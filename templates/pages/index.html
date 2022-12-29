@@ -243,7 +243,7 @@
                 <div class="card" id="testimony-card"><img class="img-fluid card-img-top w-100 d-block card-img-top" src="{{ about.banner_image.url }}">
                     <div class="card-body">
                         <h4 class="card-title" id="about-title">{{ about.about_title }}</h4><small>{{ about.about_subtitle }}</small>
-                        <p class="card-text" id="testimony-p">{{ about.description|truncatechars:"100" }}<br></p><a class="card-link" id="read-more-link" href="{% url 'about-us' about.slug %}">Read More&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
+                        <p class="card-text" id="testimony-p">{{ about.description|truncatechars:"100" | safe }}<br></p><a class="card-link" id="read-more-link" href="{% url 'about-us' about.slug %}">Read More&nbsp;<i class="icon ion-ios-arrow-thin-right"></i></a></div>
                 </div>
             </div>
             {% endfor %}
