@@ -27,13 +27,13 @@
             </div>
             <div class="row fbox3">
                 {% if about.photo_1 %}
-                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | title }}" href="{{ about.photo_1.url }}"><img class="img-fluid" src="{{ about.photo_1.url }}"></a></div>
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | upper }}" href="{{ about.photo_1.url }}"><img class="img-fluid" src="{{ about.photo_1.url }}"></a></div>
                 {% endif %}
                 {% if about.photo_2 %}
-                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | title }}" href="{{ about.photo_2.url }}"><img class="img-fluid" src="{{ about.photo_2.url }}"></a></div>
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | upper }}" href="{{ about.photo_2.url }}"><img class="img-fluid" src="{{ about.photo_2.url }}"></a></div>
                 {% endif %}
                 {% if about.photo_3 %}
-                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | title }}" href="{{ about.photo_3.url }}"><img class="img-fluid" src="{{ about.photo_3.url }}"></a></div>
+                <div class="col-sm-4 d-flex justify-content-center align-items-center"><a data-fancybox="gallery" data-caption="{{ about.about_title | upper }}" href="{{ about.photo_3.url }}"><img class="img-fluid" src="{{ about.photo_3.url }}"></a></div>
                 {% endif %}
             </div>
         </div>
